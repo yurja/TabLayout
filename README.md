@@ -1,5 +1,8 @@
 # TabLayout
 
+[![](https://jitpack.io/v/frendyxzc/TabLayout.svg)](https://jitpack.io/#frendyxzc/TabLayout)
+
+
 ## Usage
 
 ### 1. Add it in your root build.gradle at the end of repositories:
