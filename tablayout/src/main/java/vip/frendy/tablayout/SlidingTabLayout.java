@@ -340,7 +340,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
     /** HorizontalScrollView滚到当前tab,并且居中显示 */
     private void scrollToCurrentTab() {
-        if (mTabCount <= 0) {
+        if (mTabCount <= 0 || mTabsContainer.getChildAt(mCurrentTab) == null) {
             return;
         }
 
