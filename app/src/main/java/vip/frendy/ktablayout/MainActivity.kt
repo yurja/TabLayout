@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.myxianwen.ngzb.fragment.FragmentCommunity
+import com.myxianwen.ngzb.fragment.FragmentMain
 import kotlinx.android.synthetic.main.activity_main.*
 import vip.frendy.tablayout.entity.TabEntity
 import vip.frendy.tablayout.listener.CustomTabEntity
@@ -27,7 +28,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mFragments.add(FragmentCommunity.getInstance())
+        mFragments.add(FragmentMain.getInstance())
         mFragments.add(FragmentCommunity.getInstance())
         mFragments.add(FragmentCommunity.getInstance())
 
