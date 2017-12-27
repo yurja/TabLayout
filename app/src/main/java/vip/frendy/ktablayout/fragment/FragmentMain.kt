@@ -1,10 +1,12 @@
 package com.myxianwen.ngzb.fragment
 
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +20,12 @@ class FragmentMain : Fragment(), View.OnClickListener {
     private var rootView: View? = null
 
     private val mFragments: ArrayList<Fragment> = ArrayList()
-    private val mTitles = arrayListOf<String>("测", "哈哈", "呵呵呵呵呵呵", "嘿嘿嘿嘿", "哦哦哦哦", "嗯嗯嗯")
+    private val tab = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml("呵呵呵<small>呵呵呵</small>", Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        Html.fromHtml("呵呵呵<small>呵呵呵</small>")
+    }
+    private val mTitles = arrayListOf<CharSequence>("测", "哈哈", tab, "嘿嘿嘿嘿", "哦哦哦哦", "嗯嗯嗯")
 
     companion object {
         fun getInstance(): FragmentMain {

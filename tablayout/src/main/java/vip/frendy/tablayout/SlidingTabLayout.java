@@ -232,7 +232,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         for (int i = 0; i < mTabCount; i++) {
             tabView = View.inflate(mContext, getTabLayoutResId(), null);
             CharSequence pageTitle = mTitles == null ? mViewPager.getAdapter().getPageTitle(i) : mTitles.get(i);
-            addTab(i, pageTitle.toString(), tabView);
+            addTab(i, pageTitle, tabView);
         }
 
         updateTabStyles();

@@ -15,7 +15,7 @@
         tl:tl_tab_padding="12dp"
         tl:tl_textSelectColor="@color/colorAccent"
         tl:tl_textUnselectColor="@color/colorPrimaryDark"
-        tl:tl_textAllCaps="true"
+        tl:tl_textAllCaps="false"
         tl:tl_textsize="16sp"/>
 
     <android.support.v4.view.ViewPager
