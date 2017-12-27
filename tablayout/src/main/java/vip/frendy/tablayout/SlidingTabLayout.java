@@ -230,7 +230,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         this.mTabCount = mTitles == null ? mViewPager.getAdapter().getCount() : mTitles.size();
         View tabView;
         for (int i = 0; i < mTabCount; i++) {
-            tabView = View.inflate(mContext, R.layout.layout_tab, null);
+            tabView = View.inflate(mContext, getTabLayoutResId(), null);
             CharSequence pageTitle = mTitles == null ? mViewPager.getAdapter().getPageTitle(i) : mTitles.get(i);
             addTab(i, pageTitle.toString(), tabView);
         }
@@ -238,8 +238,12 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         updateTabStyles();
     }
 
+    public int getTabLayoutResId() {
+        return R.layout.layout_tab;
+    }
+
     public void addNewTab(String title) {
-        View tabView = View.inflate(mContext, R.layout.layout_tab, null);
+        View tabView = View.inflate(mContext, getTabLayoutResId(), null);
         if (mTitles != null) {
             mTitles.add(title);
         }
