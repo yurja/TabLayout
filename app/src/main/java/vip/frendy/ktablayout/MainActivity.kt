@@ -33,7 +33,7 @@ class MainActivity: AppCompatActivity() {
         mFragments.add(FragmentCommunity.getInstance())
 
         for (i in mTitles.indices) {
-            mTabEntities.add(TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
+            mTabEntities.add(TabEntity(this, mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
         }
         tabs.setTabData(mTabEntities, this, R.id.content, mFragments)
     }

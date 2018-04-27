@@ -5,14 +5,12 @@ import android.graphics.drawable.Drawable;
 
 import vip.frendy.tablayout.listener.CustomTabEntity;
 
-public class TabEntity implements CustomTabEntity {
-    private Context context;
+public class DrawableTabEntity implements CustomTabEntity {
     public String title;
-    public int selectedIcon;
-    public int unSelectedIcon;
+    public Drawable selectedIcon;
+    public Drawable unSelectedIcon;
 
-    public TabEntity(Context context, String title, int selectedIcon, int unSelectedIcon) {
-        this.context = context;
+    public DrawableTabEntity(String title, Drawable selectedIcon, Drawable unSelectedIcon) {
         this.title = title;
         this.selectedIcon = selectedIcon;
         this.unSelectedIcon = unSelectedIcon;
@@ -25,11 +23,11 @@ public class TabEntity implements CustomTabEntity {
 
     @Override
     public Drawable getTabSelectedIcon() {
-        return context.getResources().getDrawable(selectedIcon);
+        return selectedIcon;
     }
 
     @Override
     public Drawable getTabUnselectedIcon() {
-        return context.getResources().getDrawable(unSelectedIcon);
+        return unSelectedIcon;
     }
 }

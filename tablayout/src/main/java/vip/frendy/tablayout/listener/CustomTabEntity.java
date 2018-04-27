@@ -1,13 +1,11 @@
 package vip.frendy.tablayout.listener;
 
-import android.support.annotation.DrawableRes;
+import android.graphics.drawable.Drawable;
 
 public interface CustomTabEntity {
     String getTabTitle();
 
-    @DrawableRes
-    int getTabSelectedIcon();
+    Drawable getTabSelectedIcon();
 
-    @DrawableRes
-    int getTabUnselectedIcon();
+    Drawable getTabUnselectedIcon();
 }

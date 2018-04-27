@@ -235,7 +235,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
         tv_tab_title.setText(mTabEntitys.get(position).getTabTitle());
         ImageView iv_tab_icon = (ImageView) tabView.findViewById(R.id.iv_tab_icon);
-        iv_tab_icon.setImageResource(mTabEntitys.get(position).getTabUnselectedIcon());
+        iv_tab_icon.setImageDrawable(mTabEntitys.get(position).getTabUnselectedIcon());
 
         tabView.setOnClickListener(new OnClickListener() {
             @Override
@@ -286,7 +286,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             if (mIconVisible) {
                 iv_tab_icon.setVisibility(View.VISIBLE);
                 CustomTabEntity tabEntity = mTabEntitys.get(i);
-                iv_tab_icon.setImageResource(i == mCurrentTab ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
+                iv_tab_icon.setImageDrawable(i == mCurrentTab ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         mIconWidth <= 0 ? LinearLayout.LayoutParams.WRAP_CONTENT : (int) mIconWidth,
                         mIconHeight <= 0 ? LinearLayout.LayoutParams.WRAP_CONTENT : (int) mIconHeight);
@@ -315,7 +315,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
             ImageView iv_tab_icon = (ImageView) tabView.findViewById(R.id.iv_tab_icon);
             CustomTabEntity tabEntity = mTabEntitys.get(i);
-            iv_tab_icon.setImageResource(isSelect ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
+            iv_tab_icon.setImageDrawable(isSelect ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
             if (mTextBold == TEXT_BOLD_WHEN_SELECT) {
                 tab_title.getPaint().setFakeBoldText(isSelect);
             }
@@ -872,7 +872,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             float margin = 0;
             if (mIconVisible) {
                 if (iconH <= 0) {
-                    iconH = mContext.getResources().getDrawable(mTabEntitys.get(position).getTabSelectedIcon()).getIntrinsicHeight();
+                    iconH = mTabEntitys.get(position).getTabSelectedIcon().getIntrinsicHeight();
                 }
                 margin = mIconMargin;
             }
