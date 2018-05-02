@@ -13,18 +13,26 @@ public class FragmentChangeManager {
     private ArrayList<Fragment> mFragments;
     /** 当前选中的Tab */
     private int mCurrentTab;
+    private ArrayList<String> mTags;
 
-    public FragmentChangeManager(FragmentManager fm, int containerViewId, ArrayList<Fragment> fragments) {
+    public FragmentChangeManager(FragmentManager fm, int containerViewId, ArrayList<Fragment> fragments, ArrayList<String> tags) {
         this.mFragmentManager = fm;
         this.mContainerViewId = containerViewId;
         this.mFragments = fragments;
+        this.mTags = tags;
         initFragments();
     }
 
     /** 初始化fragments */
     private void initFragments() {
-        for (Fragment fragment : mFragments) {
-            mFragmentManager.beginTransaction().add(mContainerViewId, fragment).hide(fragment).commit();
+        for (int i=0; i<mFragments.size(); i++) {
+            Fragment fragment = mFragments.get(i);
+
+            if(mTags != null && mTags.size() > i) {
+                mFragmentManager.beginTransaction().add(mContainerViewId, fragment, mTags.get(i)).hide(fragment).commit();
+            } else {
+                mFragmentManager.beginTransaction().add(mContainerViewId, fragment).hide(fragment).commit();
+            }
         }
 
         setFragments(0);

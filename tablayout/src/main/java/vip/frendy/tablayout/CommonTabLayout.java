@@ -203,7 +203,11 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     /** 关联数据支持同时切换fragments */
     public void setTabData(ArrayList<CustomTabEntity> tabEntitys, FragmentActivity fa, int containerViewId, ArrayList<Fragment> fragments) {
-        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments);
+        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments, null);
+        setTabData(tabEntitys);
+    }
+    public void setTabData(ArrayList<CustomTabEntity> tabEntitys, FragmentActivity fa, int containerViewId, ArrayList<Fragment> fragments, ArrayList<String> tags) {
+        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments, tags);
         setTabData(tabEntitys);
     }
 

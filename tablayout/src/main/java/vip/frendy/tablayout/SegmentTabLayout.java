@@ -172,7 +172,11 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
 
     /** 关联数据支持同时切换fragments */
     public void setTabData(String[] titles, FragmentActivity fa, int containerViewId, ArrayList<Fragment> fragments) {
-        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments);
+        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments, null);
+        setTabData(titles);
+    }
+    public void setTabData(String[] titles, FragmentActivity fa, int containerViewId, ArrayList<Fragment> fragments, ArrayList<String> tags) {
+        mFragmentChangeManager = new FragmentChangeManager(fa.getSupportFragmentManager(), containerViewId, fragments, tags);
         setTabData(titles);
     }
 
