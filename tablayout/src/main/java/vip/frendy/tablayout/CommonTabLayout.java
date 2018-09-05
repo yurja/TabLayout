@@ -2,6 +2,7 @@ package vip.frendy.tablayout;
 
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -492,7 +493,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         this.mCurrentTab = currentTab;
         updateTabSelection(currentTab);
         if (mFragmentChangeManager != null) {
-            mFragmentChangeManager.setFragments(currentTab);
+            if(!((Activity) mContext).isFinishing())
+                mFragmentChangeManager.setFragments(currentTab);
         }
         if (mIndicatorAnimEnable) {
             calcOffset();
