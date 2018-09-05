@@ -493,7 +493,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         this.mCurrentTab = currentTab;
         updateTabSelection(currentTab);
         if (mFragmentChangeManager != null) {
-            if(!((Activity) mContext).isFinishing())
+            if(mContext instanceof Activity && !((Activity) mContext).isFinishing())
                 mFragmentChangeManager.setFragments(currentTab);
         }
         if (mIndicatorAnimEnable) {
